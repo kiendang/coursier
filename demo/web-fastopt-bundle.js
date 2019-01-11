@@ -12318,6 +12318,9 @@ var $g =
     : ((typeof global === "object" && global && global["Object"] === Object) ? global : this);
 $env["global"] = $g;
 
+
+
+
 // Where to send exports
 
 var $e = exports;
@@ -12327,6 +12330,7 @@ var $e = exports;
 
 
 $env["exportsNamespace"] = $e;
+
 
 // Freeze the environment info
 $g["Object"]["freeze"]($env);
@@ -12378,7 +12382,7 @@ var $linkingInfo = {
 
   "assumingES6": false,
 
-  "linkerVersion": "0.6.25",
+  "linkerVersion": "0.6.26",
   "globalThis": this
 };
 $g["Object"]["freeze"]($linkingInfo);
@@ -33424,6 +33428,7 @@ function $c_ju_regex_Matcher() {
   this.lastMatch$1 = null;
   this.lastMatchIsValid$1 = false;
   this.canStillFind$1 = false;
+  this.lastGroupCount$1 = null;
   this.appendPos$1 = 0;
   this.startOfGroupCache$1 = null
 }
@@ -33493,7 +33498,26 @@ $c_ju_regex_Matcher.prototype.matches__Z = (function() {
   return (this.lastMatch$1 !== null)
 });
 $c_ju_regex_Matcher.prototype.groupCount__I = (function() {
-  return (((-1) + $uI(this.ensureLastMatch__p1__sjs_js_RegExp$ExecResult().length)) | 0)
+  if ((this.lastMatch$1 !== null)) {
+    return (((-1) + $uI(this.lastMatch$1.length)) | 0)
+  } else {
+    var x1 = this.lastGroupCount$1;
+    if ($is_s_Some(x1)) {
+      var x2 = $as_s_Some(x1);
+      var n = $uI(x2.value$2);
+      return n
+    } else {
+      var x = $m_s_None$();
+      if ((x === x1)) {
+        var groupCountRegex = new $g.RegExp(("|" + this.pattern0$1.jsPattern__T()));
+        var newGroupCount = (((-1) + $uI(groupCountRegex.exec("").length)) | 0);
+        this.lastGroupCount$1 = new $c_s_Some().init___O(newGroupCount);
+        return newGroupCount
+      } else {
+        throw new $c_s_MatchError().init___O(x1)
+      }
+    }
+  }
 });
 $c_ju_regex_Matcher.prototype.appendTail__jl_StringBuffer__jl_StringBuffer = (function(sb) {
   var thiz = this.inputstr$1;
@@ -33518,6 +33542,7 @@ $c_ju_regex_Matcher.prototype.init___ju_regex_Pattern__jl_CharSequence__I__I = (
   this.lastMatch$1 = null;
   this.lastMatchIsValid$1 = false;
   this.canStillFind$1 = true;
+  this.lastGroupCount$1 = $m_s_None$();
   this.appendPos$1 = 0;
   this.startOfGroupCache$1 = $m_s_None$();
   return this
