@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Coursier Blog</title>
+        <link>https://coursier.github.io/coursier/blog</link>
+        <description>The best place to stay up-to-date with the latest Coursier news and events.</description>
+        <lastBuildDate>Mon, 14 Jan 2019 06:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>Coursier Blog</title>
+            <url>https://coursier.github.io/coursier/undefined</url>
+            <link>https://coursier.github.io/coursier/blog</link>
+        </image>
+        <copyright>Copyright © 2019 coursier contributors</copyright>
+        <item>
+            <title><![CDATA[1.1.0-M10]]></title>
+            <link>https://coursier.github.io/coursier/blog/2019/01/14/1.1.0-M10.html</link>
+            <guid>https://coursier.github.io/coursier/blog/2019/01/14/1.1.0-M10.html</guid>
+            <pubDate>Mon, 14 Jan 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>coursier <code>1.1.0-M10</code> was just released. This is a milestone release, not necessarily aiming at retaining binary / source compatibility of the API with later versions.</p> <p>This is the first release of coursier while it's <a href="https://get-coursier.io">new website</a> is up and running, and <a href="https://github.com/olafurpg/sbt-ci-release">s...</a></p>]]></description>
+        </item>
+    </channel>
+</rss>

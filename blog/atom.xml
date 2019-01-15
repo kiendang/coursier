@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://coursier.github.io/coursier/blog</id>
+    <title>Coursier Blog</title>
+    <updated>2019-01-14T06:00:00Z</updated>
+    <generator>Feed for Node.js</generator>
+    <link rel="alternate" href="https://coursier.github.io/coursier/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest Coursier news and events.</subtitle>
+    <logo>https://coursier.github.io/coursier/undefined</logo>
+    <rights>Copyright © 2019 coursier contributors</rights>
+    <entry>
+        <title type="html"><![CDATA[1.1.0-M10]]></title>
+        <id>https://coursier.github.io/coursier/blog/2019/01/14/1.1.0-M10.html</id>
+        <link href="https://coursier.github.io/coursier/blog/2019/01/14/1.1.0-M10.html">
+        </link>
+        <updated>2019-01-14T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>coursier <code>1.1.0-M10</code> was just released. This is a milestone release, not necessarily aiming at retaining binary / source compatibility of the API with later versions.</p> <p>This is the first release of coursier while it's <a href="https://get-coursier.io">new website</a> is up and running, and <a href="https://github.com/olafurpg/sbt-ci-release">s...</a></p>]]></summary>
+        <author>
+            <name>Alexandre Archambault</name>
+            <uri>https://github.com/alexarchambault</uri>
+        </author>
+    </entry>
+</feed>
