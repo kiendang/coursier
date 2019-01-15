@@ -3,16 +3,16 @@
  <head>
   <meta charSet="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Scala.JS · Coursier</title>
+  <title>Scala.js · Coursier</title>
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
-  <meta name="description" content="*coursier* is also compiled to Scala.JS, and can be tested in the browser via its">
+  <meta name="description" content="The core modules of coursier are cross-compiled and published for">
   <meta name="docsearch:version" content="next">
   <meta name="docsearch:language" content="en">
-  <meta property="og:title" content="Scala.JS · Coursier">
+  <meta property="og:title" content="Scala.js · Coursier">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://coursier.github.io/coursier/index.html">
-  <meta property="og:description" content="*coursier* is also compiled to Scala.JS, and can be tested in the browser via its">
+  <meta property="og:description" content="The core modules of coursier are cross-compiled and published for">
   <meta name="twitter:card" content="summary">
   <link rel="shortcut icon" href="../../../undefined">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
@@ -85,7 +85,7 @@
           <h3 class="navGroupCategoryTitle">API</h3>
           <ul>
            <li class="navListItem"><a class="navItem" href="../api">Usage</a></li>
-           <li class="navListItem navListItemActive"><a class="navItem" href="">Scala.JS</a></li>
+           <li class="navListItem navListItemActive"><a class="navItem" href="">Scala.js</a></li>
           </ul>
          </div>
          <div class="navGroup">
@@ -146,11 +146,18 @@
       <div class="post">
        <header class="postHeader">
         <a class="edit-page-link button" href="https://github.com/coursier/coursier/edit/master/doc/docs/scala-js.md" target="_blank" rel="noreferrer noopener">Edit</a>
-        <h1 class="postHeaderTitle">Scala.JS</h1>
+        <h1 class="postHeaderTitle">Scala.js</h1>
        </header>
        <article>
         <div>
-         <span><p><em>coursier</em> is also compiled to Scala.JS, and can be tested in the browser via its <a href="../demo">demo</a>.</p> </span>
+         <span><p>The core modules of coursier are cross-compiled and published for <a href="https://www.scala-js.org">Scala.js</a>. This allows to run resolutions from Node.js or from the browser, via Scala.js. Note that only the core module of coursier, running resolutions, is cross-compiled. The cache module is not, so that one cannot rely on the cache of coursier from Scala.js.</p> <p>As a substitute to the cache module, a module named <a href="https://repo1.maven.org/maven2/io/get-coursier/coursier-fetch-js_sjs0.6_2.12"><code>fetch-js</code></a> is published for Scala.js, allowing one to fetch metadata and possibly artifacts via XMLHttpRequests.</p> <p>From sbt, one can depend on the core and fetch modules via</p> <pre><code class="hljs css language-scala">resolvers += <span class="hljs-type">Resolver</span>.sonatypeRepo(<span class="hljs-string">"snapshots"</span>)
+libraryDependencies ++= <span class="hljs-type">Seq</span>(
+  <span class="hljs-string">"io.get-coursier"</span> %%% <span class="hljs-string">"coursier-core"</span> % <span class="hljs-string">"1.1.0-M10+28-85c5d9fd-SNAPSHOT"</span>,
+  <span class="hljs-string">"io.get-coursier"</span> %%% <span class="hljs-string">"coursier-fetch-js"</span> % <span class="hljs-string">"1.1.0-M10+28-85c5d9fd-SNAPSHOT"</span>
+)
+</code></pre> <p>or simply via the <code>coursier</code> module, which aggregates both,</p> <pre><code class="hljs css language-scala">resolvers += <span class="hljs-type">Resolver</span>.sonatypeRepo(<span class="hljs-string">"snapshots"</span>)
+libraryDependencies += <span class="hljs-string">"io.get-coursier"</span> %%% <span class="hljs-string">"coursier"</span> % <span class="hljs-string">"1.1.0-M10+28-85c5d9fd-SNAPSHOT"</span>
+</code></pre> <p>As an illustration, coursier has <a href="../demo">an in-browser demo</a>, that allows one to run resolutions entirely from the browser.</p> </span>
         </div>
        </article>
       </div>

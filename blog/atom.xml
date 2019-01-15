@@ -14,7 +14,7 @@
         <link href="https://coursier.github.io/coursier/blog/2019/01/14/1.1.0-M10.html">
         </link>
         <updated>2019-01-14T06:00:00Z</updated>
-        <summary type="html"><![CDATA[<p>coursier <code>1.1.0-M10</code> was just released. This is a milestone release, not necessarily aiming at retaining binary / source compatibility of the API with later versions.</p> <p>This is the first release of coursier while it's <a href="https://get-coursier.io">new website</a> is up and running, and <a href="https://github.com/olafurpg/sbt-ci-release">s...</a></p>]]></summary>
+        <summary type="html"><![CDATA[<p>coursier <code>1.1.0-M10</code> was just released. This is the first release of coursier while it's <a href="https://get-coursier.io">new website</a> is up and running, and <a href="https://github.com/olafurpg/sbt-ci-release">sbt-ci-release</a> handles publishing, from Travis CI.</p> <p>Note that this is a milestone release, not necessarily aiming at retaining bi...</p>]]></summary>
         <author>
             <name>Alexandre Archambault</name>
             <uri>https://github.com/alexarchambault</uri>
