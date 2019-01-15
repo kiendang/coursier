@@ -6,13 +6,13 @@
   <title>Motivations · Coursier</title>
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
-  <meta name="description" content="*Direct former README import (possibly not up-to-date)*">
+  <meta name="description" content="In contrast to libraries out there allowing to interact with Maven or Ivy">
   <meta name="docsearch:version" content="next">
   <meta name="docsearch:language" content="en">
   <meta property="og:title" content="Motivations · Coursier">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://coursier.github.io/coursier/index.html">
-  <meta property="og:description" content="*Direct former README import (possibly not up-to-date)*">
+  <meta property="og:description" content="In contrast to libraries out there allowing to interact with Maven or Ivy">
   <meta name="twitter:card" content="summary">
   <link rel="shortcut icon" href="../../undefined">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
@@ -150,13 +150,7 @@
        </header>
        <article>
         <div>
-         <span><p><em>Direct former README import (possibly not up-to-date)</em></p> <p>The current state of dependency management in Scala suffers several flaws, that prevent applications to fully profit from and rely on dependency management. Coursier aims at addressing these by making it easy to:</p> 
-          <ul> 
-           <li>resolve / download dependencies programmatically,</li> 
-           <li>launch applications distributed via Maven / Ivy artifacts from the command-line,</li> 
-           <li>work offline with artifacts,</li> 
-           <li>sandbox dependency management between projects.</li> 
-          </ul> <p>As its <a href="quick-start-api">API</a> illustrates, getting artifacts of dependencies is just a matter of specifying these along with a few repositories. You can then straightforwardly get the corresponding artifacts, easily getting precise feedback about what goes on during the resolution.</p> <p>Launching an application distributed via Maven artifacts is just a command away with the <a href="cli-launch">launcher</a> of coursier. In most cases, just specifying the corresponding main dependency is enough to launch the corresponding application.</p> <p>If all your dependencies are in cache, chances are coursier will not even try to connect to remote repositories. This also applies to snapshot dependencies of course - these are only updated on demand, not getting constantly in your way like is currently the case by default with SBT.</p> <p>When using coursier from the command-line or via its SBT plugin, sandboxing is just one command away. Just do <code>export COURSIER_CACHE="$(pwd)/.coursier-cache"</code>, and the cache will become <code>.coursier-cache</code> from the current directory instead of the default global <code>~/.coursier/cache/v1</code>. This allows for example to quickly inspect the content of the cache used by a particular project, in case you have any doubt about what's in it.</p> </span>
+         <span><p>In contrast to libraries out there allowing to interact with Maven or Ivy repositories, coursier aims at making it easier to download things from Maven or Ivy repositories, foster their use beyond just downloading dependencies in build tools, and allow to build reliable things on top of them.</p> <p>It puts a great emphasis on downloading things from repositories as fast as one's bandwidth allows, while not requiring retaining global locks of any kind during downloads. Its <a href="cli-overview">CLI</a> illustrates how one can rely on Maven or Ivy repositories to launch applications or have a glance at packages' transitive dependencies. Its <a href="api">API</a> follows functional programming principles, aiming at making it easy to add dependency resolution capabilities to one's applications and libraries.</p> </span>
         </div>
        </article>
       </div>
