@@ -4,7 +4,7 @@
         <title>Coursier Blog</title>
         <link>https://get-coursier.io/blog</link>
         <description>The best place to stay up-to-date with the latest Coursier news and events.</description>
-        <lastBuildDate>Mon, 14 Jan 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Feb 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,13 @@
             <link>https://get-coursier.io/blog</link>
         </image>
         <copyright>Copyright © 2019 coursier contributors</copyright>
+        <item>
+            <title><![CDATA[1.1.0-M11]]></title>
+            <link>https://get-coursier.io/blog/2019/02/05/1.1.0-M11.html</link>
+            <guid>https://get-coursier.io/blog/2019/02/05/1.1.0-M11.html</guid>
+            <pubDate>Tue, 05 Feb 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>coursier <code>1.1.0-M11</code> was just released. This release contains <a href="#tweaking-enhancements">numerous enhancements</a> both in the core of coursier and its CLI, along with <a href="#fixes">a few fixes</a> for the CLI.</p> <p>It occurs in the midst of the addition of the higher level API for coursier, that should b...</p>]]></description>
+        </item>
         <item>
             <title><![CDATA[1.1.0-M10]]></title>
             <link>https://get-coursier.io/blog/2019/01/14/1.1.0-M10.html</link>

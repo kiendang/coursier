@@ -2,12 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://get-coursier.io/blog</id>
     <title>Coursier Blog</title>
-    <updated>2019-01-14T06:00:00Z</updated>
+    <updated>2019-02-05T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://get-coursier.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Coursier news and events.</subtitle>
     <logo>https://get-coursier.io/undefined</logo>
     <rights>Copyright © 2019 coursier contributors</rights>
+    <entry>
+        <title type="html"><![CDATA[1.1.0-M11]]></title>
+        <id>https://get-coursier.io/blog/2019/02/05/1.1.0-M11.html</id>
+        <link href="https://get-coursier.io/blog/2019/02/05/1.1.0-M11.html">
+        </link>
+        <updated>2019-02-05T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>coursier <code>1.1.0-M11</code> was just released. This release contains <a href="#tweaking-enhancements">numerous enhancements</a> both in the core of coursier and its CLI, along with <a href="#fixes">a few fixes</a> for the CLI.</p> <p>It occurs in the midst of the addition of the higher level API for coursier, that should b...</p>]]></summary>
+        <author>
+            <name>Alexandre Archambault</name>
+            <uri>https://github.com/alexarchambault</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[1.1.0-M10]]></title>
         <id>https://get-coursier.io/blog/2019/01/14/1.1.0-M10.html</id>
