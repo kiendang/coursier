@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
   <meta name="description" content="*Direct former README import (possibly not up-to-date)*">
-  <meta name="docsearch:version" content="1.1.0-M10">
+  <meta name="docsearch:version" content="1.1.0-M11">
   <meta name="docsearch:language" content="en">
   <meta property="og:title" content="Usage · Coursier">
   <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
    <div class="headerWrapper wrapper">
     <header>
      <a href="../.."><h2 class="headerTitle">Coursier</h2></a>
-     <a href="../../versions"><h3>1.1.0-M10</h3></a>
+     <a href="../../versions"><h3>1.1.0-M11</h3></a>
      <div class="navigationWrapper navigationSlider">
       <nav class="slidingNav">
        <ul class="nav-site nav-site-internal">
@@ -58,12 +58,11 @@
         </div>
         <div class="navGroups">
          <div class="navGroup">
-          <h3 class="navGroupCategoryTitle">Quick start</h3>
+          <h3 class="navGroupCategoryTitle">Intro</h3>
           <ul>
            <li class="navListItem"><a class="navItem" href="../../docs/overview">Overview</a></li>
-           <li class="navListItem"><a class="navItem" href="../../docs/quick-start-sbt">sbt plugin</a></li>
-           <li class="navListItem"><a class="navItem" href="../../docs/quick-start-cli">Command-line</a></li>
-           <li class="navListItem"><a class="navItem" href="../../docs/quick-start-api">API</a></li>
+           <li class="navListItem"><a class="navItem" href="../../docs/overview-motivations">Motivations</a></li>
+           <li class="navListItem"><a class="navItem" href="../../docs/overview-in-the-wild">Users</a></li>
           </ul>
          </div>
          <div class="navGroup">
@@ -88,7 +87,7 @@
           <h3 class="navGroupCategoryTitle">API</h3>
           <ul>
            <li class="navListItem navListItemActive"><a class="navItem" href="../../docs/api">Usage</a></li>
-           <li class="navListItem"><a class="navItem" href="../../docs/scala-js">Scala JS</a></li>
+           <li class="navListItem"><a class="navItem" href="../../docs/scala-js">Scala.js</a></li>
           </ul>
          </div>
          <div class="navGroup">
@@ -106,16 +105,9 @@
          <div class="navGroup">
           <h3 class="navGroupCategoryTitle">Development</h3>
           <ul>
+           <li class="navListItem"><a class="navItem" href="../../docs/dev-contributing">Contributing</a></li>
            <li class="navListItem"><a class="navItem" href="../../docs/dev-cli">CLI</a></li>
            <li class="navListItem"><a class="navItem" href="../../docs/dev-website">Website</a></li>
-          </ul>
-         </div>
-         <div class="navGroup">
-          <h3 class="navGroupCategoryTitle">About</h3>
-          <ul>
-           <li class="navListItem"><a class="navItem" href="../../docs/motivations">Why?</a></li>
-           <li class="navListItem"><a class="navItem" href="../../docs/contributing">Contributing</a></li>
-           <li class="navListItem"><a class="navItem" href="../../docs/users">Users</a></li>
           </ul>
          </div>
         </div>
@@ -161,12 +153,13 @@
        <article>
         <div>
          <span><p><em>Direct former README import (possibly not up-to-date)</em></p> <p>Add to your <code>build.sbt</code></p> <pre><code class="hljs css language-scala">libraryDependencies ++= <span class="hljs-type">Seq</span>(
-  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier"</span> % <span class="hljs-string">"1.1.0-M10"</span>,
-  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier-cache"</span> % <span class="hljs-string">"1.1.0-M10"</span>
+  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier-core"</span> % <span class="hljs-string">"1.1.0-M11"</span>,
+  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier-cache"</span> % <span class="hljs-string">"1.1.0-M11"</span>
 )
-</code></pre> <p>The first module, <code>"io.get-coursier" %% "coursier" % "1.1.0-M10"</code>, contains among others, definitions, mainly in <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/Definitions.scala"><code>Definitions.scala</code></a>, <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/Resolution.scala"><code>Resolution</code></a>, representing a particular state of the resolution, and <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/ResolutionProcess.scala"><code>ResolutionProcess</code></a>, that expects to be given metadata, wrapped in any <code>Monad</code>, then feeds these to <code>Resolution</code>, and at the end gives you the final <code>Resolution</code>, wrapped in the same <code>Monad</code> it was given input. This final <code>Resolution</code> has all the dependencies, including the transitive ones.</p> <p>The second module, <code>"io.get-coursier" %% "coursier-cache" % "1.1.0-M10"</code>, is precisely in charge of fetching these input metadata. It uses its own <code>coursier.util.Task</code> as a <code>Monad</code> to wrap them. It also fetches artifacts (JARs, etc.). It caches all of these (metadata and artifacts) on disk, and validates checksums too.</p> <p>In the code below, we'll assume some imports are around,</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier._
+</code></pre> <p>or simply</p> <pre><code class="hljs css language-scala">libraryDependencies += <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier"</span> % <span class="hljs-string">"1.1.0-M11"</span>
+</code></pre> <p>The first module, <code>"io.get-coursier" %% "coursier" % "1.1.0-M11"</code>, contains among others, definitions, mainly in <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/Definitions.scala"><code>Definitions.scala</code></a>, <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/Resolution.scala"><code>Resolution</code></a>, representing a particular state of the resolution, and <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/ResolutionProcess.scala"><code>ResolutionProcess</code></a>, that expects to be given metadata, wrapped in any <code>Monad</code>, then feeds these to <code>Resolution</code>, and at the end gives you the final <code>Resolution</code>, wrapped in the same <code>Monad</code> it was given input. This final <code>Resolution</code> has all the dependencies, including the transitive ones.</p> <p>The second module, <code>"io.get-coursier" %% "coursier-cache" % "1.1.0-M11"</code>, is precisely in charge of fetching these input metadata. It uses its own <code>coursier.util.Task</code> as a <code>Monad</code> to wrap them. It also fetches artifacts (JARs, etc.). It caches all of these (metadata and artifacts) on disk, and validates checksums too.</p> <p>In the code below, we'll assume some imports are around,</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier._
 </code></pre> <p>Resolving dependencies involves create an initial resolution state, with all the initial dependencies in it, like</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> start = <span class="hljs-type">Resolution</span>(
-  <span class="hljs-type">Set</span>(
+  <span class="hljs-type">Seq</span>(
     <span class="hljs-type">Dependency</span>(
       <span class="hljs-type">Module</span>(<span class="hljs-string">org"org.typelevel"</span>, <span class="hljs-string">name"cats-core_2.11"</span>), <span class="hljs-string">"0.6.0"</span>
     ),
@@ -189,7 +182,7 @@
 )
 </code></pre> <p>Now that we have repositories, we're going to mix these with things from the <code>coursier-cache</code> module, for resolution to happen via the cache. We'll create a function of type <code>Seq[(Module, String)] =&gt; F[Seq[((Module, String), Either[Seq[String], (Artifact.Source, Project)])]]</code>. Given a sequence of dependencies, designated by their <code>Module</code> (organisation and name in most cases) and version (just a <code>String</code>), it gives either errors (<code>Seq[String]</code>) or metadata (<code>(Artifact.Source, Project)</code>), wrapping the whole in a monad <code>F</code>.</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier.util.<span class="hljs-type">Task</span>
 
-<span class="hljs-keyword">val</span> fetch = <span class="hljs-type">Fetch</span>.from(repositories, <span class="hljs-type">Cache</span>.fetch[<span class="hljs-type">Task</span>]())
+<span class="hljs-keyword">val</span> fetch = <span class="hljs-type">ResolutionProcess</span>.fetch(repositories, <span class="hljs-type">Cache</span>.fetch[<span class="hljs-type">Task</span>]())
 </code></pre> <p>The monad used by <code>Fetch.from</code> is <code>coursier.util.Task</code>, but the resolution process is not tied to a particular monad - any stack-safe monad would do.</p> <p>With this <code>fetch</code> method, we can now go on with the resolution. Calling <code>process</code> on <code>start</code> above gives a <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/ResolutionProcess.scala"><code>ResolutionProcess</code></a>, that drives the resolution. It is loosely inspired by the <code>Process</code> of <a href="http://fs2.io/">fs2</a> (formerly scalaz-stream). It is an immutable structure, that represents the various states the resolution process can be in.</p> <p>Its method <code>current</code> gives the current <code>Resolution</code>. Calling <code>isDone</code> on the latter says whether the resolution is done or not.</p> <p>The <code>next</code> method, that expects a <code>fetch</code> method like the one above, gives the "next" state of the resolution process, wrapped in the monad of the <code>fetch</code> method. It allows to do one resolution step.</p> <p>Lastly, the <code>run</code> method runs the whole resolution until its end. It expects a <code>fetch</code> method too, and will make at most <code>maxIterations</code> steps (50 by default), and return the "final" resolution state, wrapped in the monad of <code>fetch</code>. One should check that the <code>Resolution</code> it returns is done (<code>isDone</code>) - the contrary means that <code>maxIterations</code> were reached, likely signaling an issue, unless the underlying resolution is particularly complex, in which case <code>maxIterations</code> could be increased.</p> <p>Let's run the whole resolution,</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
 
 <span class="hljs-keyword">val</span> resolution = start.process.run(fetch).unsafeRun()

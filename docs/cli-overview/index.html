@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
   <meta name="description" content="# CLI">
-  <meta name="docsearch:version" content="1.1.0-M10">
+  <meta name="docsearch:version" content="1.1.0-M11">
   <meta name="docsearch:language" content="en">
   <meta property="og:title" content="Overview · Coursier">
   <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
    <div class="headerWrapper wrapper">
     <header>
      <a href="../../.."><h2 class="headerTitle">Coursier</h2></a>
-     <a href="../../../versions"><h3>1.1.0-M10</h3></a>
+     <a href="../../../versions"><h3>1.1.0-M11</h3></a>
      <div class="navigationWrapper navigationSlider">
       <nav class="slidingNav">
        <ul class="nav-site nav-site-internal">
@@ -58,12 +58,11 @@
         </div>
         <div class="navGroups">
          <div class="navGroup">
-          <h3 class="navGroupCategoryTitle">Quick start</h3>
+          <h3 class="navGroupCategoryTitle">Intro</h3>
           <ul>
            <li class="navListItem"><a class="navItem" href="../../../docs/overview">Overview</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../docs/quick-start-sbt">sbt plugin</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../docs/quick-start-cli">Command-line</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../docs/quick-start-api">API</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../docs/overview-motivations">Motivations</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../docs/overview-in-the-wild">Users</a></li>
           </ul>
          </div>
          <div class="navGroup">
@@ -88,7 +87,7 @@
           <h3 class="navGroupCategoryTitle">API</h3>
           <ul>
            <li class="navListItem"><a class="navItem" href="../../../docs/api">Usage</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../docs/scala-js">Scala JS</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../docs/scala-js">Scala.js</a></li>
           </ul>
          </div>
          <div class="navGroup">
@@ -106,16 +105,9 @@
          <div class="navGroup">
           <h3 class="navGroupCategoryTitle">Development</h3>
           <ul>
+           <li class="navListItem"><a class="navItem" href="../../../docs/dev-contributing">Contributing</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/dev-cli">CLI</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/dev-website">Website</a></li>
-          </ul>
-         </div>
-         <div class="navGroup">
-          <h3 class="navGroupCategoryTitle">About</h3>
-          <ul>
-           <li class="navListItem"><a class="navItem" href="../../../docs/motivations">Why?</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../docs/contributing">Contributing</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../docs/users">Users</a></li>
           </ul>
          </div>
         </div>
@@ -167,17 +159,17 @@
            <li><a href="../../../docs/cli-resolve">list the transitive dependencies</a> and</li> 
            <li><a href="../../../docs/cli-fetch">fetch the artifacts</a> of one or more dependencies,</li> 
            <li><a href="../../../docs/cli-launch">run applications from dependencies</a>, and</li> 
-           <li><a href="../../../docs/cli-bootstrap">generate convenient launcher to run them</a> among others.</li> 
+           <li><a href="../../../docs/cli-bootstrap">generate convenient launchers to run them</a> among others.</li> 
           </ul> <p>See below for its <a href="index.html#installation">installation</a>, <a href="index.html#usage">its basic usage</a>, and click on the links above or on the left for more details about each of its commands.</p> <h2><a class="anchor" aria-hidden="true" id="installation"></a><a href="index.html#installation" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
             </svg></a>Installation</h2> <h3><a class="anchor" aria-hidden="true" id="curl"></a><a href="index.html#curl" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>curl</h3> <p>Download and run its launcher with</p> <pre><code class="hljs css language-bash">$ curl -L -o coursier https://git.io/coursier-cli &amp;&amp;
+            </svg></a>curl</h3> <p>Download and run its launcher with</p> <pre><code class="hljs css language-bash">$ curl -Lo coursier https://git.io/coursier-cli &amp;&amp;
     chmod +x coursier &amp;&amp;
     ./coursier --<span class="hljs-built_in">help</span>
-</code></pre> <p>The launcher itself weighs only 17 kB and can be easily embedded as is in other projects. It downloads the artifacts required to launch coursier on the first run.</p> <p>The short URL <a href="https://git.io.coursier-cli"><code>https://git.io.coursier-cli</code></a> redirects to <a href="https://github.com/coursier/coursier/raw/gh-pages/coursier"><code>https://github.com/coursier/coursier/raw/gh-pages/coursier</code></a>. From version <code>1.0.0-RC1</code> to <code>1.1.0-M9</code>, <code>gh-pages</code> in the latter URL can be replaced by the tag of a specific version, to download the launcher of that exact version, like <a href="https://github.com/coursier/coursier/raw/v1.1.0-M7/coursier"><code>https://github.com/coursier/coursier/raw/v1.1.0-M7/coursier</code></a>. For versions <code>1.1.0-M9</code> and later, the launcher is available as an asset on the GitHub release page, e.g. <a href="https://github.com/coursier/coursier/releases/download/v1.1.0-M9/coursier"><code>https://github.com/coursier/coursier/releases/download/v1.1.0-M9/coursier</code></a>.</p> <h3><a class="anchor" aria-hidden="true" id="brew"></a><a href="index.html#brew" aria-hidden="true" class="hash-link">
+</code></pre> <p>The launcher itself weights only 17 kB and can be easily embedded as is in other projects. It downloads the artifacts required to launch coursier on the first run.</p> <p>The short URL <a href="https://git.io/coursier-cli">https://git.io/coursier-cli</a> redirects to <a href="https://github.com/coursier/coursier/raw/gh-pages/coursier">https://github.com/coursier/coursier/raw/gh-pages/coursier</a>. From version <code>1.0.0-RC1</code> to <code>1.1.0-M9</code>, <code>gh-pages</code> in the latter URL can be replaced by the tag of a specific version, to download the launcher of that exact version, like <a href="https://github.com/coursier/coursier/raw/v1.1.0-M7/coursier">https://github.com/coursier/coursier/raw/v1.1.0-M7/coursier</a>. For versions <code>1.1.0-M9</code> and later, the launcher is available as an asset on the GitHub release page, e.g. <a href="https://github.com/coursier/coursier/releases/download/v1.1.0-M9/coursier">https://github.com/coursier/coursier/releases/download/v1.1.0-M9/coursier</a>.</p> <h3><a class="anchor" aria-hidden="true" id="brew"></a><a href="index.html#brew" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
             </svg></a>brew</h3> <p>Alternatively on OS X, install it via homebrew, that puts the <code>coursier</code> launcher directly in your PATH,</p> <pre><code class="hljs css language-bash">$ brew tap coursier/formulas
@@ -203,6 +195,7 @@ cp scripts/_coursier ~/.zsh/completion/
             </svg></a>Usage</h2> <pre><code class="hljs css language-bash">$ ./coursier --<span class="hljs-built_in">help</span>
 </code></pre> <p>lists the available coursier commands. The most notable ones are <code>launch</code>, and <code>fetch</code>. Type</p> <pre><code class="hljs css language-bash">$ ./coursier <span class="hljs-built_in">command</span> --<span class="hljs-built_in">help</span>
 </code></pre> <p>to get a description of the various options the command <code>command</code> (replace with one of the above command) accepts.</p> <p>Both commands below can be given repositories with the <code>-r</code> or <code>--repository</code> option, like</p> <pre><code class="hljs css language-bash">-r central
+-r sonatype:snapshots
 -r https://oss.sonatype.org/content/repositories/snapshots
 -r <span class="hljs-string">"ivy:https://repo.typesafe.com/typesafe/ivy-releases/[organisation]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]"</span>
 </code></pre> <p><code>central</code> and <code>ivy2local</code> correspond to Maven Central and <code>~/.ivy2/local</code>. These are used by default unless the <code>--no-default</code> option is specified.</p> <p>Repositories starting with <code>ivy:</code> are assumed to be Ivy repositories, specified with an Ivy pattern, like <code>ivy:https://repo.typesafe.com/typesafe/ivy-releases/[organisation]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]</code>. Else, a Maven repository is assumed.</p> <p>To set credentials for a repository, pass a user and password in its URL, like</p> <pre><code class="hljs css language-bash">-r https://user:pass@nexus.corp.com/content/repositories/releases
