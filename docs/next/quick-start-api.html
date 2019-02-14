@@ -54,8 +54,8 @@
         <div>
          <span><p>Add to your <code>build.sbt</code></p> <pre><code class="hljs css language-scala">resolvers += <span class="hljs-type">Resolver</span>.sonatypeRepo(<span class="hljs-string">"snapshots"</span>)
 libraryDependencies ++= <span class="hljs-type">Seq</span>(
-  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier"</span> % <span class="hljs-string">"1.1.0-M11-1+19-743d0721-SNAPSHOT"</span>,
-  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier-cache"</span> % <span class="hljs-string">"1.1.0-M11-1+19-743d0721-SNAPSHOT"</span>
+  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier"</span> % <span class="hljs-string">"1.1.0-M11-1+46-1b6cdf43-SNAPSHOT"</span>,
+  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier-cache"</span> % <span class="hljs-string">"1.1.0-M11-1+46-1b6cdf43-SNAPSHOT"</span>
 )
 </code></pre> <p>Add an import for coursier,</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier._
 </code></pre> <p>To resolve dependencies, first create a <code>Resolution</code> case class with your dependencies in it,</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> start = <span class="hljs-type">Resolution</span>(
@@ -83,9 +83,10 @@ libraryDependencies ++= <span class="hljs-type">Seq</span>(
 </code></pre> <p>That will fetch and use metadata.</p> <p>Check for errors in</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> errors: <span class="hljs-type">Seq</span>[((<span class="hljs-type">Module</span>, <span class="hljs-type">String</span>), <span class="hljs-type">Seq</span>[<span class="hljs-type">String</span>])] =
   resolution.errors
 </code></pre> <p>Any error would mean that the resolution wasn't able to get metadata about some dependencies.</p> <p>Then fetch and get local copies of the artifacts themselves (the JARs) with</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> java.io.<span class="hljs-type">File</span>
+<span class="hljs-keyword">import</span> coursier.cache.<span class="hljs-type">ArtifactError</span>
 <span class="hljs-keyword">import</span> coursier.util.{<span class="hljs-type">Gather</span>, <span class="hljs-type">Task</span>}
 
-<span class="hljs-keyword">val</span> localArtifacts: <span class="hljs-type">Seq</span>[<span class="hljs-type">Either</span>[<span class="hljs-type">FileError</span>, <span class="hljs-type">File</span>]] =
+<span class="hljs-keyword">val</span> localArtifacts: <span class="hljs-type">Seq</span>[<span class="hljs-type">Either</span>[<span class="hljs-type">ArtifactError</span>, <span class="hljs-type">File</span>]] =
   <span class="hljs-type">Gather</span>[<span class="hljs-type">Task</span>].gather(
     resolution
       .artifacts()
