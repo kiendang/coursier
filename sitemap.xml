@@ -5,6 +5,8 @@
 <url> <loc>https://get-coursier.io/versions</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/en/versions" /> </url>
 <url> <loc>https://get-coursier.io/blog/2019/02/05/1.1.0-M11</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
 <url> <loc>https://get-coursier.io/blog/2019/01/14/1.1.0-M10</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://get-coursier.io/docs/next/api-low-level</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/api-low-level" /> </url>
+<url> <loc>https://get-coursier.io/docs/next/api-scala-js</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/api-scala-js" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/api</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/api" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/cache</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/cache" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/cli-bootstrap</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/cli-bootstrap" /> </url>
@@ -21,6 +23,7 @@
 <url> <loc>https://get-coursier.io/docs/next/json-report</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/json-report" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/limitations</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/limitations" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/other-proxy</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/other-proxy" /> </url>
+<url> <loc>https://get-coursier.io/docs/next/other-repositories</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/other-repositories" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/overview-in-the-wild</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/overview-in-the-wild" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/overview-motivations</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/overview-motivations" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/overview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/overview" /> </url>
@@ -30,7 +33,6 @@
 <url> <loc>https://get-coursier.io/docs/next/repositories</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/repositories" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/sbt-coursier</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/sbt-coursier" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/sbt-pgp-coursier</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/sbt-pgp-coursier" /> </url>
-<url> <loc>https://get-coursier.io/docs/next/scala-js</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/scala-js" /> </url>
 <url> <loc>https://get-coursier.io/docs/next/ttl</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/next/ttl" /> </url>
 <url> <loc>https://get-coursier.io/docs/api</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/api" /> </url>
 <url> <loc>https://get-coursier.io/docs/cache</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://get-coursier.io/docs/cache" /> </url>
