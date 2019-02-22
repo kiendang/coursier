@@ -3,16 +3,16 @@
  <head>
   <meta charSet="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Usage · Coursier</title>
+  <title>API · Coursier</title>
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
-  <meta name="description" content="*Direct former README import (possibly not up-to-date)*">
-  <meta name="docsearch:version" content="1.1.0-M11">
+  <meta name="description" content="> This page describes the new high level API of coursier, being added since">
+  <meta name="docsearch:version" content="1.1.0-M11-2">
   <meta name="docsearch:language" content="en">
-  <meta property="og:title" content="Usage · Coursier">
+  <meta property="og:title" content="API · Coursier">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://get-coursier.io/index.html">
-  <meta property="og:description" content="*Direct former README import (possibly not up-to-date)*">
+  <meta property="og:description" content="> This page describes the new high level API of coursier, being added since">
   <meta name="twitter:card" content="summary">
   <link rel="shortcut icon" href="../../../undefined">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
@@ -27,7 +27,7 @@
    <div class="headerWrapper wrapper">
     <header>
      <a href="../../.."><h2 class="headerTitle">Coursier</h2></a>
-     <a href="../../../versions"><h3>1.1.0-M11</h3></a>
+     <a href="../../../versions"><h3>1.1.0-M11-2</h3></a>
      <div class="navigationWrapper navigationSlider">
       <nav class="slidingNav">
        <ul class="nav-site nav-site-internal">
@@ -86,8 +86,9 @@
          <div class="navGroup">
           <h3 class="navGroupCategoryTitle">API</h3>
           <ul>
-           <li class="navListItem navListItemActive"><a class="navItem" href="../../../docs/api">Usage</a></li>
-           <li class="navListItem"><a class="navItem" href="../../../docs/scala-js">Scala.js</a></li>
+           <li class="navListItem navListItemActive"><a class="navItem" href="../../../docs/api">API</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../docs/api-low-level">Low-level API</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../docs/api-scala-js">Scala.js</a></li>
           </ul>
          </div>
          <div class="navGroup">
@@ -95,6 +96,7 @@
           <ul>
            <li class="navListItem"><a class="navItem" href="../../../docs/cache">Cache</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/ttl">TTL</a></li>
+           <li class="navListItem"><a class="navItem" href="../../../docs/other-repositories">Repositories</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/other-proxy">Proxy</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/json-report">JSON report</a></li>
            <li class="navListItem"><a class="navItem" href="../../../docs/extra">Extra</a></li>
@@ -148,64 +150,53 @@
       <div class="post">
        <header class="postHeader">
         <a class="edit-page-link button" href="https://github.com/coursier/coursier/edit/master/doc/docs/api.md" target="_blank" rel="noreferrer noopener">Edit</a>
-        <h1 class="postHeaderTitle">Usage</h1>
+        <h1 class="postHeaderTitle">API</h1>
        </header>
        <article>
         <div>
-         <span><p><em>Direct former README import (possibly not up-to-date)</em></p> <p>Add to your <code>build.sbt</code></p> <pre><code class="hljs css language-scala">libraryDependencies ++= <span class="hljs-type">Seq</span>(
-  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier-core"</span> % <span class="hljs-string">"1.1.0-M11"</span>,
-  <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier-cache"</span> % <span class="hljs-string">"1.1.0-M11"</span>
-)
-</code></pre> <p>or simply</p> <pre><code class="hljs css language-scala">libraryDependencies += <span class="hljs-string">"io.get-coursier"</span> %% <span class="hljs-string">"coursier"</span> % <span class="hljs-string">"1.1.0-M11"</span>
-</code></pre> <p>The first module, <code>"io.get-coursier" %% "coursier" % "1.1.0-M11"</code>, contains among others, definitions, mainly in <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/Definitions.scala"><code>Definitions.scala</code></a>, <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/Resolution.scala"><code>Resolution</code></a>, representing a particular state of the resolution, and <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/ResolutionProcess.scala"><code>ResolutionProcess</code></a>, that expects to be given metadata, wrapped in any <code>Monad</code>, then feeds these to <code>Resolution</code>, and at the end gives you the final <code>Resolution</code>, wrapped in the same <code>Monad</code> it was given input. This final <code>Resolution</code> has all the dependencies, including the transitive ones.</p> <p>The second module, <code>"io.get-coursier" %% "coursier-cache" % "1.1.0-M11"</code>, is precisely in charge of fetching these input metadata. It uses its own <code>coursier.util.Task</code> as a <code>Monad</code> to wrap them. It also fetches artifacts (JARs, etc.). It caches all of these (metadata and artifacts) on disk, and validates checksums too.</p> <p>In the code below, we'll assume some imports are around,</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier._
-</code></pre> <p>Resolving dependencies involves create an initial resolution state, with all the initial dependencies in it, like</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> start = <span class="hljs-type">Resolution</span>(
-  <span class="hljs-type">Seq</span>(
-    <span class="hljs-type">Dependency</span>(
-      <span class="hljs-type">Module</span>(<span class="hljs-string">org"org.typelevel"</span>, <span class="hljs-string">name"cats-core_2.11"</span>), <span class="hljs-string">"0.6.0"</span>
-    ),
-    <span class="hljs-type">Dependency</span>(
-      <span class="hljs-type">Module</span>(<span class="hljs-string">org"org.scalaz"</span>, <span class="hljs-string">name"scalaz-core_2.11"</span>), <span class="hljs-string">"7.2.3"</span>
-    )
-  )
-)
-</code></pre> <p>It goes without saying that a <code>Resolution</code> is immutable, as are all the classes defined in the core module. The resolution process will go on by giving successive <code>Resolution</code>s, until the final one.</p> <p><code>start</code> above is only the initial state - it is far from over, as the <code>isDone</code> method on it tells,</p> <pre><code class="hljs css language-scala">start.isDone
-<span class="hljs-comment">// res0: Boolean = false</span>
-</code></pre> <p>In order for the resolution to go on, we'll need things from a few repositories,</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> repositories = <span class="hljs-type">Seq</span>(
-  coursier.cache.<span class="hljs-type">LocalRepositories</span>.ivy2Local,
-  <span class="hljs-type">MavenRepository</span>(<span class="hljs-string">"https://repo1.maven.org/maven2"</span>)
-)
-</code></pre> <p>The first one, <code>Cache.ivy2Local</code>, is defined in <code>coursier.Cache</code>, itself from the <code>coursier-cache</code> module that we added above. It is an <code>IvyRepository</code>, picking things under <code>~/.ivy2/local</code>. An <code>IvyRepository</code> is related to the <a href="http://ant.apache.org/ivy/">Ivy</a> build tool. This kind of repository involves a so-called <a href="http://ant.apache.org/ivy/history/2.4.0/concept.html#patterns">pattern</a>, with various properties. These are not of very common use in Scala, although SBT uses them a bit.</p> <p>The second repository is a <code>MavenRepository</code>. These are simpler than the Ivy repositories. They're the ones we're the most used to in Scala. Common ones like <a href="https://repo1.maven.org/maven2">Central</a> like here, or the repositories from <a href="https://oss.sonatype.org/content/repositories/">Sonatype</a>, are Maven repositories. These originate from the <a href="https://maven.apache.org/">Maven</a> build tool. Unlike the Ivy repositories which involve customisable patterns to point to the underlying metadata and artifacts, the paths of these for Maven repositories all look alike, like for any particular version of the standard library, under paths like <a href="http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.11.7/">this one</a>.</p> <p>Both <code>IvyRepository</code> and <code>MavenRepository</code> are case classes, so that it's straightforward to specify one's own repositories.</p> <p>To set credentials for a <code>MavenRepository</code> or <code>IvyRepository</code>, set their <code>authentication</code> field, like</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier.core.<span class="hljs-type">Authentication</span>
+         <span>
+          <blockquote> 
+           <p>This page describes the new high level API of coursier, being added since <code>1.1.0-M10</code>. It's still subject to source / binary compatibility breakages, even though its general outline shouldn't change much.</p> 
+          </blockquote> <p>The high level API of coursier aims at being as simple to use as its <a href="../../../docs/cli-overview">CLI</a>, with sensible defaults in particular, while retaining the purity of the low-level API.</p> <p>It exposes a few objects under the <code>coursier</code> namespace, most notably <code>coursier.Resolve</code> and <code>coursier.Fetch</code>, allowing to resolve dependencies and fetch their artifacts.</p> <h2><a class="anchor" aria-hidden="true" id="resolve"></a><a href="index.html#resolve" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Resolve</h2> <p>The <code>coursier.Resolve</code> object exposes methods to run resolutions, that is finding all the transitive dependencies of some intial dependencies (while reconciling their versions at the same time).</p> <p>This entirely relies on metadata, that is POM or <code>maven-metadata.xml</code> files for Maven repositories, and <code>ivy.xml</code> files for Ivy repositories.</p> <p>If you're fine with all the defaults (cache location, resolution parameters, …), you can just resolve some dependencies with</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier._
 
-<span class="hljs-type">MavenRepository</span>(
-  <span class="hljs-string">"https://nexus.corp.com/content/repositories/releases"</span>,
-  authentication = <span class="hljs-type">Some</span>(<span class="hljs-type">Authentication</span>(<span class="hljs-string">"user"</span>, <span class="hljs-string">"pass"</span>))
+<span class="hljs-keyword">val</span> resolution = <span class="hljs-type">Resolve</span>.resolve(
+  <span class="hljs-type">Seq</span>(<span class="hljs-string">dep"org.tpolecat:doobie-core_2.12:0.6.0"</span>)
 )
-</code></pre> <p>Now that we have repositories, we're going to mix these with things from the <code>coursier-cache</code> module, for resolution to happen via the cache. We'll create a function of type <code>Seq[(Module, String)] =&gt; F[Seq[((Module, String), Either[Seq[String], (Artifact.Source, Project)])]]</code>. Given a sequence of dependencies, designated by their <code>Module</code> (organisation and name in most cases) and version (just a <code>String</code>), it gives either errors (<code>Seq[String]</code>) or metadata (<code>(Artifact.Source, Project)</code>), wrapping the whole in a monad <code>F</code>.</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier.util.<span class="hljs-type">Task</span>
+</code></pre> <p>This runs the resolution synchronously. The <code>resolveFuture</code> and <code>resolveIO</code> methods allow to run resolutions in the background, either eagerly via <code>scala.concurrent.Future</code>, or lazily via an IO monad.</p> <p><code>resolution</code> is a <code>coursier.core.Resolution</code>, which represents the (final) state of the resolution. It has various methods allowing to process dependencies, most notably <code>minDependencies</code>, returning a set of dependencies (with redundant dependencies stripped).</p> <p>The <code>resolve*</code> methods accept a number of optional parameters, discussed below.</p> <h3><a class="anchor" aria-hidden="true" id="repositories"></a><a href="index.html#repositories" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Repositories</h3> <p>The default repositories are the Ivy2 local repository (only on the JVM) and <a href="https://repo1.maven.org/maven2">Maven Central</a>. More details <a href="../../../docs/other-repositories">here</a>. These can be overridden by passing a <code>repositories</code> parameter, like</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> coursier._
+<span class="hljs-keyword">import</span> coursier.util.<span class="hljs-type">Repositories</span>
 
-<span class="hljs-keyword">val</span> fetch = <span class="hljs-type">ResolutionProcess</span>.fetch(repositories, <span class="hljs-type">Cache</span>.fetch[<span class="hljs-type">Task</span>]())
-</code></pre> <p>The monad used by <code>Fetch.from</code> is <code>coursier.util.Task</code>, but the resolution process is not tied to a particular monad - any stack-safe monad would do.</p> <p>With this <code>fetch</code> method, we can now go on with the resolution. Calling <code>process</code> on <code>start</code> above gives a <a href="https://github.com/coursier/coursier/blob/master/core/shared/src/main/scala/coursier/core/ResolutionProcess.scala"><code>ResolutionProcess</code></a>, that drives the resolution. It is loosely inspired by the <code>Process</code> of <a href="http://fs2.io/">fs2</a> (formerly scalaz-stream). It is an immutable structure, that represents the various states the resolution process can be in.</p> <p>Its method <code>current</code> gives the current <code>Resolution</code>. Calling <code>isDone</code> on the latter says whether the resolution is done or not.</p> <p>The <code>next</code> method, that expects a <code>fetch</code> method like the one above, gives the "next" state of the resolution process, wrapped in the monad of the <code>fetch</code> method. It allows to do one resolution step.</p> <p>Lastly, the <code>run</code> method runs the whole resolution until its end. It expects a <code>fetch</code> method too, and will make at most <code>maxIterations</code> steps (50 by default), and return the "final" resolution state, wrapped in the monad of <code>fetch</code>. One should check that the <code>Resolution</code> it returns is done (<code>isDone</code>) - the contrary means that <code>maxIterations</code> were reached, likely signaling an issue, unless the underlying resolution is particularly complex, in which case <code>maxIterations</code> could be increased.</p> <p>Let's run the whole resolution,</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
-
-<span class="hljs-keyword">val</span> resolution = start.process.run(fetch).unsafeRun()
-</code></pre> <p>To get additional feedback during the resolution, we can give the <code>Cache.fetch</code> method above a <a href="https://github.com/coursier/coursier/blob/cf269c6895e19f2d590f08811406724304332950/cache/src/main/scala/coursier/Cache.scala#L484-L490"><code>Cache.Logger</code></a>.</p> <p>By default, downloads happen in a global fixed thread pool (with 6 threads, allowing for 6 parallel downloads), but you can supply your own thread pool to <code>Cache.fetch</code>.</p> <p>Now that the resolution is done, we can check for errors in</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> errors: <span class="hljs-type">Seq</span>[((<span class="hljs-type">Module</span>, <span class="hljs-type">String</span>), <span class="hljs-type">Seq</span>[<span class="hljs-type">String</span>])] = resolution.errors
-</code></pre> <p>These would mean that the resolution wasn't able to get metadata about some dependencies.</p> <p>We can also check for version conflicts, in</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> conflicts: <span class="hljs-type">Set</span>[<span class="hljs-type">Dependency</span>] = resolution.conflicts
-</code></pre> <p>which are dependencies whose versions could not be unified.</p> <p>Then, if all went well, we can fetch and get local copies of the artifacts themselves (the JARs) with</p> <pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> java.io.<span class="hljs-type">File</span>
-<span class="hljs-keyword">import</span> coursier.util.<span class="hljs-type">Gather</span>
-
-<span class="hljs-keyword">val</span> localArtifacts: <span class="hljs-type">Seq</span>[<span class="hljs-type">Either</span>[<span class="hljs-type">FileError</span>, <span class="hljs-type">File</span>]] =
-  <span class="hljs-type">Gather</span>[<span class="hljs-type">Task</span>].gather(
-    resolution.artifacts().map(<span class="hljs-type">Cache</span>.file[<span class="hljs-type">Task</span>](_).run)
-  ).unsafeRun()
-</code></pre> <p>We're using the <code>Cache.file</code> method, that can also be given a <code>Logger</code> (for more feedback) and a custom thread pool.</p> </span>
+<span class="hljs-keyword">val</span> resolution = <span class="hljs-type">Resolve</span>.resolve(
+  <span class="hljs-type">Seq</span>(<span class="hljs-string">dep"sh.almond:scala-kernel-api_2.12.8:0.2.2"</span>),
+  repositories = <span class="hljs-type">Resolve</span>.defaultRepositories :+ <span class="hljs-type">Repositories</span>.jitpack
+)
+</code></pre> <h2><a class="anchor" aria-hidden="true" id="philosophy"></a><a href="index.html#philosophy" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Philosophy</h2> <p>Most methods in the <code>coursier.Resolve</code> and <code>coursier.Fetch</code> objects should be referentially transparent. At the same time, in order to make them more convenient to use, plenty of their inputs have sensible default values. These default values may in turn, trigger some side-effects, like checking if some directories exist (to find the cache location), starting thread pools (to later download things from), or checking some environment variables and Java properties. If you pass all these methods inputs explicitly, not relying on default values at all, you'll recover referential transparency.</p> <p>Some methods download things, read from and write to the cache, that is perform some I/O. They return a value wrapped in an IO monad, <code>coursier.util.Task</code> by default. These methods also have sibling methods, either returning a <code>scala.concurrent.Future</code>, or returning the underlying value synchronously, so that one can just ignore any IO monad consideration if they want to. Also, any IO monad with a <code>coursier.util.Schedulable</code> instance can be used instead of the (minimalist and probably low end) <code>coursier.util.Task</code>. The <code>cats-interop</code> and <code>scalaz-interop</code> have such instances for cats-effect and scalaz 7.2.x.</p> </span>
         </div>
        </article>
       </div>
       <div class="docs-prevnext">
        <a class="docs-prev button" href="../../../docs/cli-native-bootstrap"><span class="arrow-prev">← </span><span>Previous</span></a>
-       <a class="docs-next button" href="../../../docs/scala-js"><span>Next</span><span class="arrow-next"> →</span></a>
+       <a class="docs-next button" href="../../../docs/api-low-level"><span>Next</span><span class="arrow-next"> →</span></a>
       </div>
      </div>
     </div>
-    <nav class="onPageNav docOnPageNav"></nav>
+    <nav class="onPageNav docOnPageNav">
+     <ul class="toc-headings">
+      <li><a href="index.html#resolve">Resolve</a>
+       <ul class="toc-headings">
+        <li><a href="index.html#repositories">Repositories</a></li>
+       </ul></li>
+      <li><a href="index.html#philosophy">Philosophy</a></li>
+     </ul>
+    </nav>
    </div>
    <footer class="nav-footer" id="footer">
     <section class="sitemap">

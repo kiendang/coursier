@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width">
   <meta name="generator" content="Docusaurus">
   <meta name="description" content="One can spot plenty of Scala-related projects using coursier in the wild. Here are a few of them.">
-  <meta name="docsearch:version" content="1.1.0-M11">
+  <meta name="docsearch:version" content="1.1.0-M11-2">
   <meta name="docsearch:language" content="en">
   <meta property="og:title" content="Users · Coursier">
   <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
    <div class="headerWrapper wrapper">
     <header>
      <a href="../.."><h2 class="headerTitle">Coursier</h2></a>
-     <a href="../../versions"><h3>1.1.0-M11</h3></a>
+     <a href="../../versions"><h3>1.1.0-M11-2</h3></a>
      <div class="navigationWrapper navigationSlider">
       <nav class="slidingNav">
        <ul class="nav-site nav-site-internal">
@@ -86,8 +86,9 @@
          <div class="navGroup">
           <h3 class="navGroupCategoryTitle">API</h3>
           <ul>
-           <li class="navListItem"><a class="navItem" href="../../docs/api">Usage</a></li>
-           <li class="navListItem"><a class="navItem" href="../../docs/scala-js">Scala.js</a></li>
+           <li class="navListItem"><a class="navItem" href="../../docs/api">API</a></li>
+           <li class="navListItem"><a class="navItem" href="../../docs/api-low-level">Low-level API</a></li>
+           <li class="navListItem"><a class="navItem" href="../../docs/api-scala-js">Scala.js</a></li>
           </ul>
          </div>
          <div class="navGroup">
@@ -95,6 +96,7 @@
           <ul>
            <li class="navListItem"><a class="navItem" href="../../docs/cache">Cache</a></li>
            <li class="navListItem"><a class="navItem" href="../../docs/ttl">TTL</a></li>
+           <li class="navListItem"><a class="navItem" href="../../docs/other-repositories">Repositories</a></li>
            <li class="navListItem"><a class="navItem" href="../../docs/other-proxy">Proxy</a></li>
            <li class="navListItem"><a class="navItem" href="../../docs/json-report">JSON report</a></li>
            <li class="navListItem"><a class="navItem" href="../../docs/extra">Extra</a></li>
@@ -170,7 +172,16 @@
             </svg></a>Scala jupyter kernels</h2> <p>The scala Jupyter kernels <a href="https://github.com/apache/incubator-toree">Toree</a> and <a href="https://github.com/jupyter-scala/jupyter-scala">almond</a> (formerly jupyter-scala) both rely on coursier to handle dependencies.</p> <h2><a class="anchor" aria-hidden="true" id="scala-vscode-language-servers"></a><a href="overview-in-the-wild.html#scala-vscode-language-servers" aria-hidden="true" class="hash-link">
             <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
              <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-            </svg></a>Scala vscode language servers</h2> <p>The Visual Studio Code Scala language servers, <a href="https://github.com/scalameta/metals">metals</a>, <a href="https://github.com/dragos/dragos-vscode-scala">vscode-scala</a>, and <a href="https://github.com/lampepfl/dotty/tree/master/vscode-dotty">vscode-dotty</a>, all rely on coursier to spawn their server process.</p> </span>
+            </svg></a>Scala vscode language servers</h2> <p>The Visual Studio Code Scala language servers, <a href="https://github.com/scalameta/metals">metals</a>, <a href="https://github.com/dragos/dragos-vscode-scala">vscode-scala</a>, and <a href="https://github.com/lampepfl/dotty/tree/master/vscode-dotty">vscode-dotty</a>, all rely on coursier to spawn their server process.</p> <h2><a class="anchor" aria-hidden="true" id="other-build-tools"></a><a href="overview-in-the-wild.html#other-build-tools" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>Other build tools</h2> <h3><a class="anchor" aria-hidden="true" id="bazel-deps"></a><a href="overview-in-the-wild.html#bazel-deps" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>bazel-deps</h3> <p><a href="https://github.com/johnynek/bazel-deps">bazel-deps</a> allows to handle Maven dependencies in bazel using coursier.</p> <h3><a class="anchor" aria-hidden="true" id="fury"></a><a href="overview-in-the-wild.html#fury" aria-hidden="true" class="hash-link">
+            <svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+             <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+            </svg></a>fury</h3> <p>The <a href="https://fury.build">fury</a> build tool handles Maven dependencies via coursier.</p> </span>
         </div>
        </article>
       </div>
@@ -188,6 +199,11 @@
       <li><a href="overview-in-the-wild.html#scalafmt-and-scalafix">scalafmt and scalafix</a></li>
       <li><a href="overview-in-the-wild.html#scala-jupyter-kernels">Scala jupyter kernels</a></li>
       <li><a href="overview-in-the-wild.html#scala-vscode-language-servers">Scala vscode language servers</a></li>
+      <li><a href="overview-in-the-wild.html#other-build-tools">Other build tools</a>
+       <ul class="toc-headings">
+        <li><a href="overview-in-the-wild.html#bazel-deps">bazel-deps</a></li>
+        <li><a href="overview-in-the-wild.html#fury">fury</a></li>
+       </ul></li>
      </ul>
     </nav>
    </div>
