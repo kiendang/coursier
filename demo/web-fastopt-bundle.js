@@ -19892,7 +19892,7 @@ function $m_Lcoursier_package$() {
 /** @constructor */
 function $c_Lcoursier_util_PlatformTaskCompanion() {
   $c_O.call(this);
-  this.schedulable$1 = null
+  this.sync$1 = null
 }
 $c_Lcoursier_util_PlatformTaskCompanion.prototype = new $h_O();
 $c_Lcoursier_util_PlatformTaskCompanion.prototype.constructor = $c_Lcoursier_util_PlatformTaskCompanion;
@@ -19902,7 +19902,7 @@ function $h_Lcoursier_util_PlatformTaskCompanion() {
 }
 $h_Lcoursier_util_PlatformTaskCompanion.prototype = $c_Lcoursier_util_PlatformTaskCompanion.prototype;
 $c_Lcoursier_util_PlatformTaskCompanion.prototype.init___ = (function() {
-  this.schedulable$1 = new $c_Lcoursier_util_PlatformTaskCompanion$$anon$1().init___Lcoursier_util_PlatformTaskCompanion(this);
+  this.sync$1 = new $c_Lcoursier_util_PlatformTaskCompanion$$anon$1().init___Lcoursier_util_PlatformTaskCompanion(this);
   return this
 });
 /** @constructor */
@@ -22436,7 +22436,7 @@ $c_Lcoursier_web_Backend.prototype.task$1__p1__Lcoursier_web_State__Lcoursier_ca
     })
   })(this));
   var this$20 = $m_sc_Seq$();
-  return $as_Lcoursier_util_Task(jsx$3.run__F1__I__Lcoursier_util_Monad__O(this.fetch__sc_Seq__F1__F1($as_sc_Seq(jsx$2.map__F1__scg_CanBuildFrom__O(jsx$1, this$20.ReusableCBFInstance$2)), new $c_Lcoursier_cache_AlwaysDownload().init___Lcoursier_cache_CacheLogger(logger$1).fetch__F1()), 100, $m_Lcoursier_util_Task$().schedulable$1)).value$1
+  return $as_Lcoursier_util_Task(jsx$3.run__F1__I__Lcoursier_util_Monad__O(this.fetch__sc_Seq__F1__F1($as_sc_Seq(jsx$2.map__F1__scg_CanBuildFrom__O(jsx$1, this$20.ReusableCBFInstance$2)), new $c_Lcoursier_cache_AlwaysDownload().init___Lcoursier_cache_CacheLogger(logger$1).fetch__F1()), 100, $m_Lcoursier_util_Task$().sync$1)).value$1
 });
 $c_Lcoursier_web_Backend.prototype.handleResolve__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0 = (function(e) {
   var f = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function($this, e$1) {
@@ -22849,7 +22849,7 @@ $c_Lcoursier_web_Backend.prototype.fetch__sc_Seq__F1__F1 = (function(repositorie
   return new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$2, repositories$1, fetch$1) {
     return (function(modVers$2) {
       var modVers = $as_sc_Seq(modVers$2);
-      var G = $m_Lcoursier_util_Task$().schedulable$1;
+      var G = $m_Lcoursier_util_Task$().sync$1;
       var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, repositories$1$1, fetch$1$1) {
         return (function(x0$1$2) {
           var x0$1 = $as_T2(x0$1$2);
@@ -22859,7 +22859,7 @@ $c_Lcoursier_web_Backend.prototype.fetch__sc_Seq__F1__F1 = (function(repositorie
             var jsx$4 = $m_Lcoursier_util_Task$();
             var this$5 = $m_Lcoursier_core_ResolutionProcess$();
             var array = [];
-            var F = $m_Lcoursier_util_Task$().schedulable$1;
+            var F = $m_Lcoursier_util_Task$().sync$1;
             var x$14 = this$5.get$1__p1__F1__sc_Seq__Lcoursier_core_Module__T__Lcoursier_util_Monad__Lcoursier_util_EitherT(fetch$1$1, repositories$1$1, module, version, F);
             var start = 0;
             var end = $uI(array.length);
@@ -42288,7 +42288,7 @@ function $m_Lcoursier_util_Task$() {
   };
   return $n_Lcoursier_util_Task$
 }
-function $f_Lcoursier_util_TaskSchedulable__gather__sc_Seq__F1($thiz, elems) {
+function $f_Lcoursier_util_TaskSync__gather__sc_Seq__F1($thiz, elems) {
   return new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, elems$1) {
     return (function(ec$2) {
       var ec = $as_s_concurrent_ExecutionContext(ec$2);
@@ -55841,7 +55841,7 @@ $c_Lcoursier_util_PlatformTaskCompanion$$anon$1.prototype.point__O__O = (functio
   return new $c_Lcoursier_util_Task().init___F1($m_Lcoursier_util_Task$().point__O__F1(a))
 });
 $c_Lcoursier_util_PlatformTaskCompanion$$anon$1.prototype.gather__sc_Seq__O = (function(elems) {
-  return new $c_Lcoursier_util_Task().init___F1($f_Lcoursier_util_TaskSchedulable__gather__sc_Seq__F1(this, elems))
+  return new $c_Lcoursier_util_Task().init___F1($f_Lcoursier_util_TaskSync__gather__sc_Seq__F1(this, elems))
 });
 $c_Lcoursier_util_PlatformTaskCompanion$$anon$1.prototype.init___Lcoursier_util_PlatformTaskCompanion = (function($$outer) {
   return this
@@ -55851,11 +55851,11 @@ var $d_Lcoursier_util_PlatformTaskCompanion$$anon$1 = new $TypeData().initClass(
 }, false, "coursier.util.PlatformTaskCompanion$$anon$1", {
   Lcoursier_util_PlatformTaskCompanion$$anon$1: 1,
   O: 1,
-  Lcoursier_util_TaskSchedulable: 1,
-  Lcoursier_util_Schedulable: 1,
+  Lcoursier_util_TaskSync: 1,
+  Lcoursier_util_Sync: 1,
   Lcoursier_util_Gather: 1,
   Lcoursier_util_Monad: 1,
-  Lcoursier_util_PlatformSchedulable: 1
+  Lcoursier_util_PlatformSync: 1
 });
 $c_Lcoursier_util_PlatformTaskCompanion$$anon$1.prototype.$classData = $d_Lcoursier_util_PlatformTaskCompanion$$anon$1;
 /** @constructor */
