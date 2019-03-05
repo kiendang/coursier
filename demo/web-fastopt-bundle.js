@@ -19853,6 +19853,8 @@ function $c_Lcoursier_package$() {
   this.Repository$1 = null;
   this.MavenRepository$1 = null;
   this.Artifact$1 = null;
+  this.Classifier$1 = null;
+  this.Type$1 = null;
   this.ResolutionProcess$1 = null
 }
 $c_Lcoursier_package$.prototype = new $h_O();
@@ -19872,6 +19874,8 @@ $c_Lcoursier_package$.prototype.init___ = (function() {
   this.Repository$1 = $m_Lcoursier_core_Repository$();
   this.MavenRepository$1 = $m_Lcoursier_maven_MavenRepository$();
   this.Artifact$1 = $m_Lcoursier_core_Artifact$();
+  this.Classifier$1 = $m_Lcoursier_core_Classifier$();
+  this.Type$1 = $m_Lcoursier_core_Type$();
   this.ResolutionProcess$1 = $m_Lcoursier_core_ResolutionProcess$();
   return this
 });
@@ -21129,8 +21133,8 @@ $c_Lcoursier_web_App$.prototype.init___ = (function() {
   $m_sci_List$();
   var module$3 = new $c_Lcoursier_core_Module().init___T__T__sci_Map("io.get-coursier", "coursier-cache_2.12", $as_sci_Map($m_sci_Map$().apply__sc_Seq__sc_GenMap($m_sci_Nil$())));
   var configuration$2 = $m_Lcoursier_core_Configuration$().empty$1;
-  var type = $m_Lcoursier_core_Type$().empty$1;
-  var classifier = $m_Lcoursier_core_Classifier$().empty$1;
+  var type = $m_Lcoursier_package$().Type$1.empty$1;
+  var classifier = $m_Lcoursier_package$().Classifier$1.empty$1;
   var attributes$4 = new $c_Lcoursier_core_Attributes().init___T__T(type, classifier);
   var exclusions$2 = $m_sci_Set$EmptySet$();
   var array$78 = [new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(module$3, "1.1.0-M7", configuration$2, exclusions$2, attributes$4, false, true)];
@@ -22250,8 +22254,8 @@ $c_Lcoursier_web_Backend.prototype.addModule__Ljapgolly_scalajs_react_raw_Synthe
       var attributes = $m_sci_Map$EmptyMap$();
       var module = new $c_Lcoursier_core_Module().init___T__T__sci_Map("", "", attributes);
       var configuration = $m_Lcoursier_core_Configuration$().empty$1;
-      var type = $m_Lcoursier_core_Type$().empty$1;
-      var classifier = $m_Lcoursier_core_Classifier$().empty$1;
+      var type = $m_Lcoursier_package$().Type$1.empty$1;
+      var classifier = $m_Lcoursier_package$().Classifier$1.empty$1;
       var attributes$1 = new $c_Lcoursier_core_Attributes().init___T__T(type, classifier);
       var exclusions = $m_sci_Set$EmptySet$();
       var jsx$1 = new $c_Lcoursier_core_Dependency().init___Lcoursier_core_Module__T__T__sci_Set__Lcoursier_core_Attributes__Z__Z(module, "", configuration, exclusions, attributes$1, false, true);
