@@ -2,12 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://get-coursier.io/blog</id>
     <title>Coursier Blog</title>
-    <updated>2019-02-05T06:00:00Z</updated>
+    <updated>2019-03-05T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href="https://get-coursier.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Coursier news and events.</subtitle>
     <logo>https://get-coursier.io/undefined</logo>
     <rights>Copyright © 2019 coursier contributors</rights>
+    <entry>
+        <title type="html"><![CDATA[1.1.0-M13]]></title>
+        <id>https://get-coursier.io/blog/2019/03/05/1.1.0-M13.html</id>
+        <link href="https://get-coursier.io/blog/2019/03/05/1.1.0-M13.html">
+        </link>
+        <updated>2019-03-05T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>coursier <code>1.1.0-M13</code> was just released.</p> <p>The most notable changes of this milestone happened in the new high level API, that is nearing completion. A notion of &quot;rules&quot; or constraints is also being added to coursier, and should be described in ...</p>]]></summary>
+        <author>
+            <name>Alexandre Archambault</name>
+            <uri>https://github.com/alexarchambault</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[1.1.0-M12]]></title>
+        <id>https://get-coursier.io/blog/2019/03/04/1.1.0-M12.html</id>
+        <link href="https://get-coursier.io/blog/2019/03/04/1.1.0-M12.html">
+        </link>
+        <updated>2019-03-04T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>Changes in <code>1.1.0-M12</code> are discussed along those of <a href="/blog/2019/03/05/1.1.0-M13"><code>1.1.0-M13</code></a>.</p> ]]></summary>
+        <author>
+            <name>Alexandre Archambault</name>
+            <uri>https://github.com/alexarchambault</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[1.1.0-M11]]></title>
         <id>https://get-coursier.io/blog/2019/02/05/1.1.0-M11.html</id>

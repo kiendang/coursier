@@ -4,7 +4,7 @@
         <title>Coursier Blog</title>
         <link>https://get-coursier.io/blog</link>
         <description>The best place to stay up-to-date with the latest Coursier news and events.</description>
-        <lastBuildDate>Tue, 05 Feb 2019 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Mar 2019 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,20 @@
             <link>https://get-coursier.io/blog</link>
         </image>
         <copyright>Copyright © 2019 coursier contributors</copyright>
+        <item>
+            <title><![CDATA[1.1.0-M13]]></title>
+            <link>https://get-coursier.io/blog/2019/03/05/1.1.0-M13.html</link>
+            <guid>https://get-coursier.io/blog/2019/03/05/1.1.0-M13.html</guid>
+            <pubDate>Tue, 05 Mar 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>coursier <code>1.1.0-M13</code> was just released.</p> <p>The most notable changes of this milestone happened in the new high level API, that is nearing completion. A notion of &quot;rules&quot; or constraints is also being added to coursier, and should be described in ...</p>]]></description>
+        </item>
+        <item>
+            <title><![CDATA[1.1.0-M12]]></title>
+            <link>https://get-coursier.io/blog/2019/03/04/1.1.0-M12.html</link>
+            <guid>https://get-coursier.io/blog/2019/03/04/1.1.0-M12.html</guid>
+            <pubDate>Mon, 04 Mar 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Changes in <code>1.1.0-M12</code> are discussed along those of <a href="/blog/2019/03/05/1.1.0-M13"><code>1.1.0-M13</code></a>.</p> ]]></description>
+        </item>
         <item>
             <title><![CDATA[1.1.0-M11]]></title>
             <link>https://get-coursier.io/blog/2019/02/05/1.1.0-M11.html</link>
