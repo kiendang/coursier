@@ -37,7 +37,7 @@ jobs:
       with:
         fetch-depth: 0
         submodules: true
-    - uses: coursier/cache-action@v6.3
+    - uses: coursier/cache-action@v6.4
     - uses: coursier/setup-action@v1.2.0-M3
       with:
         jvm: ${{ matrix.JDK }}
@@ -73,7 +73,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '12'
-    - uses: coursier/cache-action@v6.3
+    - uses: coursier/cache-action@v6.4
     - uses: coursier/setup-action@v1.2.0-M3
       with:
         jvm: 8
@@ -90,7 +90,7 @@ jobs:
       with:
         fetch-depth: 0
         submodules: true
-    - uses: coursier/cache-action@v6.3
+    - uses: coursier/cache-action@v6.4
     - uses: coursier/setup-action@v1.2.0-M3
       with:
         jvm: 8
@@ -112,7 +112,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '12'
-    - uses: coursier/cache-action@v6.3
+    - uses: coursier/cache-action@v6.4
     - uses: coursier/setup-action@v1.2.0-M3
       with:
         jvm: 8
@@ -127,7 +127,7 @@ jobs:
       with:
         fetch-depth: 0
         submodules: true
-    - uses: coursier/cache-action@v6.3
+    - uses: coursier/cache-action@v6.4
     - uses: coursier/setup-action@v1.2.0-M3
       with:
         jvm: 8
@@ -143,7 +143,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@v6.3
+      - uses: coursier/cache-action@v6.4
       - run: .github/scripts/gpg-setup.sh
         env:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
@@ -181,7 +181,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@v6.3
+      - uses: coursier/cache-action@v6.4
       - uses: coursier/setup-action@v1.2.0-M3
         with:
           jvm: 8
@@ -205,7 +205,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@v6.3
+      - uses: coursier/cache-action@v6.4
       - run: .github/scripts/gpg-setup.sh
         env:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
@@ -269,7 +269,7 @@ jobs:
       with:
         fetch-depth: 0
         submodules: true
-    - uses: coursier/cache-action@v6.3
+    - uses: coursier/cache-action@v6.4
     - uses: coursier/setup-action@v1.2.0-M3
       with:
         jvm: 8
@@ -294,7 +294,7 @@ jobs:
       with:
         fetch-depth: 0
         submodules: true
-    - uses: coursier/cache-action@v6.3
+    - uses: coursier/cache-action@v6.4
     - uses: coursier/setup-action@v1.2.0-M3
       with:
         jvm: 8
@@ -316,7 +316,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@v6.3
+      - uses: coursier/cache-action@v6.4
       - uses: coursier/setup-action@v1.2.0-M3
         with:
           jvm: 8
@@ -337,7 +337,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '12'
-      - uses: coursier/cache-action@v6.3
+      - uses: coursier/cache-action@v6.4
       - uses: coursier/setup-action@v1.2.0-M3
         with:
           jvm: 8
@@ -358,7 +358,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '12'
-      - uses: coursier/cache-action@v6.3
+      - uses: coursier/cache-action@v6.4
       - uses: coursier/setup-action@v1.2.0-M3
         with:
           jvm: 8
